@@ -21,18 +21,20 @@ namespace esercizio_liste2
         }
 
         // funzione rotazione lista
-        static void Rotazione(List<int> num)
+        static void Rotazione(List<int> num, int spos)
         {
-            Console.WriteLine("Inserisci numeri spostamenti");
-            int scelta = Convert.ToInt32(Console.ReadLine());
-
-            for (int i = 0; i < num.Count; i++)
-            {
-                int v = 0;
-                
-            }
+            int k = 0;
+            k = num[num.Count  - 1];
+            num.RemoveAt(num.Count - 1);
+            num.Insert(0, k);
         }
 
+        // funzione picco di frequenza
+        static int Picco(List<int> num)
+        {
+
+
+        } 
         static void Main(string[] args)
         {
             // indice esplosivo
@@ -41,6 +43,16 @@ namespace esercizio_liste2
 
             // rotazione lista 
             List<int> num = new List<int>() { 1, 2, 3, 4, 5 };
+            Console.WriteLine("inserisci numero spostamenti");
+            int spos = Convert.ToInt32(Console.ReadLine());
+            Rotazione(num, spos);
+            foreach (int i in numeri)
+            {
+                Console.Write("[" + i + "]");
+            }
+
+            // picco frequenza
+
 
 
         }
