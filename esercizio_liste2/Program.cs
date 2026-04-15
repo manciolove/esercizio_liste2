@@ -1,6 +1,4 @@
-﻿using static System.Runtime.InteropServices.JavaScript.JSType;
-
-namespace esercizio_liste2
+﻿namespace esercizio_liste2
 {
     internal class Program
     {
@@ -30,11 +28,31 @@ namespace esercizio_liste2
         }
 
         // funzione picco di frequenza
-        static int Picco(List<int> num)
+        static void TrovaPicco(List<int> num)
         {
+            int numeroFrequente = 0;
+            int maxRipetizioni = 0;
 
+            foreach (int numeroDaControllare in num)
+            {
+                int conteggioCorrente = 0;
 
-        } 
+                foreach (int n in num)
+                {
+                    if (n == numeroDaControllare)
+                    {
+                        conteggioCorrente++;
+                    }
+                }
+
+                if (conteggioCorrente > maxRipetizioni)
+                {
+                    maxRipetizioni = conteggioCorrente;
+                    numeroFrequente = numeroDaControllare;
+                }
+            }
+            Console.WriteLine($"Il numero più frequente è {numeroFrequente} (appare {maxRipetizioni} volte).");
+        }
         static void Main(string[] args)
         {
             // indice esplosivo
@@ -43,6 +61,8 @@ namespace esercizio_liste2
 
             // rotazione lista 
             List<int> num = new List<int>() { 1, 2, 3, 4, 5 };
+            Console.WriteLine();
+            Console.WriteLine("-------------");
             Console.WriteLine("inserisci numero spostamenti");
             int spos = Convert.ToInt32(Console.ReadLine());
             Rotazione(num, spos);
@@ -50,9 +70,13 @@ namespace esercizio_liste2
             {
                 Console.Write("[" + i + "]");
             }
+            Console.WriteLine();
+            Console.WriteLine("-------------");
 
             // picco frequenza
-
+            List<int> n = new List<int> { 4, 1, 4, 2, 3, 4, 4, 1, 2, 4, 9 };
+            TrovaPicco(numeri);
+            
 
 
         }
